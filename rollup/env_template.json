@@ -11,7 +11,7 @@
     "runat": "document-body"
   },
   "liveReload": {
-    "clientURL": "https://localhost:35730/livereload.js?snipver=1",
+    "clientURL": "http://localhost:35730/livereload.js?snipver=1",
     "serverPort": "35730",
     "key": "",
     "certificate": ""
