@@ -1,0 +1,12 @@
+# https://git-scm.com/docs/gitignore#_pattern_format
+
+# FOLDERS
+node_modules/
+userscripts/
+coverage/
+
+# FILES
+env.json
+yarn.lock
+*.url
+*.lnk

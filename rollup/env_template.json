@@ -1,0 +1,19 @@
+{
+  "sourceFolder": "./src",
+  "userscriptFolder": "./userscripts",
+  "remoteFolder": "M:/dev/userscripts",
+  "remoteWebURL": "https://web.server:8081/dev/userscripts",
+  "meta": {
+    "include": "// @include      /web.server:8081\\/dev\\/userscripts",
+    "require": "//",
+    "resources": "//",
+    "grant": "none",
+    "runat": "document-body"
+  },
+  "liveReload": {
+    "clientURL": "https://localhost:35730/livereload.js?snipver=1",
+    "serverPort": "35730",
+    "key": "",
+    "certificate": ""
+  }
+}
