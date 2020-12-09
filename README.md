@@ -1,20 +1,22 @@
 # Userscript Development
 
-## Note: This documentation is currently a work in progress and I'll update as I have time.
+## This documentation is currently a work in progress and I'll update as I have time
+- I use Yarn, if you only use NPM feel free to open an issue to discuss a PR for NPM additions to the documentation as I don't know NPM enough to include those
+- I use VSCode in Windows 10, if you're on anything different and the instructions are different because of that, then open an issue to let me know
+
 
 ## Clone
 1. `git clone` the project from GitHub to where you want to start a new project.
 2. `yarn install` and `yarn init` or manually update `package.json`
 3. Rename `env_template.json` to `env.json` and edit with your project details.
 
-## Workflow
-- This environment has been refined over several years of iterations in my personal workflow for developing userscripts.  The main focus is to bundle the script and copy it to a remote server where it can be installed in the browser with Tampermonkey.
+## General Workflow
+- This userscript development environment has been refined over several years of iterations in my personal workflow for developing userscripts.  The main focus is to bundle the script and copy it to a remote server where it can be installed in the browser with Tampermonkey.
 - The imports from `@subz390/jsutils` in `index.js` are from my personal library of userscript centric helper functions.  I am working toward publishing the library.  I use them in testing the boilerplate project.
 - Create your userscript in `index.js` and add your CSS to `style.css`
-- I use Yarn, if you only use NPM feel free to open an issue to discuss a PR for NPM additions to the documentation as I don't know NPM enough to write those.
 - `yarn build` to build a minified version of the userscript into a folder called `userscripts`
 - `yarn autobuild` does all the above and creates two scripts.  Install the loader script which sideloads the userscript without you having to continually reinstall the script in `(Grease|Tamper)monkey` and it'll use livereload to automatically do that whilst refreshing the web page.  When you're done, `yarn build` install the update and you're done.
-7. `yarn source` is an option to bundle a clean source code version of the script.
+- `yarn source` is an option to bundle a clean source code version of the script.
 
 ## Bundling ES6 Modules from Dependencies in node_modules
 
