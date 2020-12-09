@@ -1,7 +1,7 @@
 # Userscript Development
 
 1. Note: This documentation is currently a work in progress.  I'll update as I have time.  For now here is a basic overview of the environment.
-2. Basically you can just clone the project from GitHub to where you want to start a new project.  Fill out `package.json` with your project info.
+2. Basically you can just clone the project from GitHub to where you want to start a new project.  Fill out `package.json` with your project info, and then `yarn install`.
 3. Rename `env_template.json` to `env.json` and edit with your project details.
 4. The environment is designed around developing a userscript, so with this in mind the focus is to bundle the script and copy it to a remote server where you can load and install it as you would any other userscript.  If you want to just install from your local drive, then edit `rollup.config.js` and comment out `copyToRemote()` configurations.
 5. There's imports from `@subz390/jsutils` in `index.js` from my personal library of userscript centric helper functions.  I am working toward publishing the library.  But for now you can create your userscript in `index.js` and add your CSS to `style.css` then run `yarn build` to build a minified version of the userscript into a folder called `userscripts`, it'll create one when it does that.  And then it'll send a copy to your server.
