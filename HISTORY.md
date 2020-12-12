@@ -6,6 +6,10 @@ https://github.com/subz390/userscript-boilerplate
 
 # PROJECT HISTORY
 
+## 201212
+- 0.7.10 refactored the HTML content creation into two tests
+- 0.7.9 code tidy `index.js`
+
 ## 201208
 - 0.7.8 fixed issue with Rollup hanging, was livereload plugin being loaded when not in development mode
 
