@@ -3,6 +3,7 @@ https://github.com/subz390/userscript-boilerplate
 
 
 ## 201216
+- 0.7.13 `yarn upgrade-interactive --latest` update devDependencies
 - 0.7.12 add separate markdown files for ISSUES and ROADMAP
 - 0.7.11 add license to `index.js`
 
