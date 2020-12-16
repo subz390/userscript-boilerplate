@@ -1,3 +1,9 @@
+/**
+ * @name userscript-boilerplate
+ * @license MIT
+ * @description this file demonstrates the functionality of the boilerplate development environment as it's configured in rollup.config.js
+ */
+
 import {multiply} from '../tests/maths.js'
 
 // @rollup/plugin-node-resolve
