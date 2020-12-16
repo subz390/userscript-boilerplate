@@ -3,6 +3,8 @@ https://github.com/subz390/userscript-boilerplate
 
 
 ## 201216
+- 0.7.15 clean code so debug can be removed when bundling
+- 0.7.14 add `greasyfork` output, comments and debug removed, plain userscript to post on the Greasy Fork website
 - 0.7.13 `yarn upgrade-interactive --latest` update devDependencies
 - 0.7.12 add separate markdown files for ISSUES and ROADMAP
 - 0.7.11 add license to `index.js`

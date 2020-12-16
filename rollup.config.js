@@ -91,15 +91,18 @@ import modify from 'rollup-plugin-modify'
  */
 function removeDebuggingCode() {
   return modify({
-    find: /^([\t ]*(\/\/\ ?)?(const|let) debug = .+)/m,
+    find: /^([\t ]*(\/\/\ ?)?(const|let) (debug|warn) = .+)/m,
     replace: (...args) => {
       // args are the captured regex matches
       // [0] whole string
       // [1] (\/\/\ ?)
       // [3] (const|let)
-      return `${args[3]} debug = false`
+      return `// ${args[0]}`
     }
   })
+}
+function removeDebugConsole() {
+  return modify({find: /(debug|warn) &&/m, replace: (...args) => {return `// ${args[0]}`}})
 }
 
 // remove comments and empty lines
@@ -145,6 +148,7 @@ function clearTargetFolders() {
 import {terser} from 'rollup-plugin-terser'
 const terserOptions = {
   compress: {passes: 2},
+  // mangle: false,
   // https://github.com/terser/terser#format-options
   format: {
     // beautify: true,
@@ -226,6 +230,7 @@ const buildConfig = {
     ...baseConfig.plugins,
     clearTargetFolders(),
     removeDebuggingCode(),
+    removeDebugConsole(),
     terser(terserOptions),
     attachHeader('userscript'),
     copyToRemote()
@@ -238,9 +243,23 @@ const sourceConfig = {
     ...baseConfig.plugins,
     clearTargetFolders(),
     removeDebuggingCode(),
+    removeDebugConsole(),
     cleanup(), // remove comments and empty lines from source code
     attachHeader('userscript'),
     // attachHeader('license'), // or just the license header
+    copyToRemote()
+  ]
+}
+
+const greasyForkConfig = {
+  ...baseConfig,
+  plugins: [
+    ...baseConfig.plugins,
+    clearTargetFolders(),
+    removeDebuggingCode(),
+    removeDebugConsole(),
+    cleanup({comments: 'none'}),
+    attachHeader('userscript'),
     copyToRemote()
   ]
 }
@@ -261,6 +280,10 @@ switch (process.env.BUILD_ENV) {
 
   case 'source':
     rollupConfig = sourceConfig
+    break
+
+  case 'greasyfork':
+    rollupConfig = greasyForkConfig
     break
 
   default:
