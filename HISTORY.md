@@ -1,10 +1,10 @@
-# ISSUES
-
-# ROADMAP
-
+# PROJECT HISTORY
 https://github.com/subz390/userscript-boilerplate
 
-# PROJECT HISTORY
+
+## 201216
+- 0.7.12 add separate markdown files for ISSUES and ROADMAP
+- 0.7.11 add license to `index.js`
 
 ## 201212
 - 0.7.10 refactored the HTML content creation into two tests
