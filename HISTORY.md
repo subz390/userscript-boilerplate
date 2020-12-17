@@ -3,6 +3,7 @@ https://github.com/subz390/userscript-boilerplate
 
 
 ## 201216
+- 0.7.19 add keywords to `package.json`
 - 0.7.18 merge `minifyConfig greasyForkConfig` into `build`
 - 0.7.17 create `disableDebugWarn` as a means of commenting out debug and warn logging so that it can be removed with `cleanup()`
 - 0.7.16 add `@noframes` to `META.js`

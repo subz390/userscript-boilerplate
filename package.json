@@ -1,7 +1,20 @@
 {
   "name": "userscript-boilerplate",
-  "version": "0.7.18",
-  "description": "Boilerplate for Greasemonkey Tampermonkey Userscripts",
+  "version": "0.7.19",
+  "description": "Boilerplate for Userscript development",
+  "keywords": [
+    "Greasemonkey",
+    "Tampermonkey",
+    "Violentmonkey",
+    "Userscripts",
+    "Web browser",
+    "Chrome",
+    "Firefox",
+    "Microsoft Edge",
+    "Opera",
+    "Maxthon",
+    "Dolphin"
+  ],
   "main": "./src/index.js",
   "author": "SubZ390 <11546815+subz390@users.noreply.github.com> (https://github.com/subz390)",
   "license": "MIT",
