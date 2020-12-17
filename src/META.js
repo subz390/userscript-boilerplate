@@ -7,6 +7,7 @@
 // @license      MIT
 // @run-at       <%= data.runat %>
 // @grant        <%= data.grant %>
+// @noframes
 <%= data.include %>
 <%= data.require %>
 <%= data.resources %>

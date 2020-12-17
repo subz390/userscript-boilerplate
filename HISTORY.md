@@ -3,6 +3,9 @@ https://github.com/subz390/userscript-boilerplate
 
 
 ## 201216
+- 0.7.18 merge `minifyConfig greasyForkConfig` into `build`
+- 0.7.17 create `disableDebugWarn` as a means of commenting out debug and warn logging so that it can be removed with `cleanup()`
+- 0.7.16 add `@noframes` to `META.js`
 - 0.7.15 clean code so debug can be removed when bundling
 - 0.7.14 add `greasyfork` output, comments and debug removed, plain userscript to post on the Greasy Fork website
 - 0.7.13 `yarn upgrade-interactive --latest` update devDependencies

@@ -81,31 +81,28 @@ function attachHeader(type = 'userscript') {
 import modify from 'rollup-plugin-modify'
 
 /**
- * @name removeDebuggingCode
+ * @name disableDebugWarn
  * @return {function} rollup-plugin-modify imported function
  * @description search and replace debug definition so that Rollup will treeshake corresponding debug && * statements.
  * @summary use debugging statements in the format listed in the example below.  When debug is false, Rollup will remove (treeshake) every debug && console.log() statement from the source.
  * @example
- * const debug = true
- * debug && console.log('your debug log')
+ * const debug =
+ * let debug =
+ * const warn =
+ * warn warn =
+ * debug &&
+ * warn &&
  */
-function removeDebuggingCode() {
+function disableDebugWarn() {
   return modify({
-    find: /^([\t ]*(\/\/\ ?)?(const|let) (debug|warn) = .+)/m,
-    replace: (...args) => {
-      // args are the captured regex matches
-      // [0] whole string
-      // [1] (\/\/\ ?)
-      // [3] (const|let)
-      return `// ${args[0]}`
-    }
+    find: /(^([\t ]*(\/\/\ ?)?(const|let) (debug|warn) = .+))|(debug|warn) &&/m,
+    replace: (...args) => {return `// ${args[0]}`}
   })
 }
-function removeDebugConsole() {
-  return modify({find: /(debug|warn) &&/m, replace: (...args) => {return `// ${args[0]}`}})
-}
+
 
 // remove comments and empty lines
+// by default licenses aren't removed, use cleanup({comments: 'none'}) to also remove licenses
 // https://github.com/aMarCruz/rollup-plugin-cleanup
 import cleanup from 'rollup-plugin-cleanup'
 
@@ -218,19 +215,17 @@ const sideLoadedConfig = {
   output: {...baseConfig.output, file: `${env.userscriptFolder}/${pkg.name}-sideloaded-user.js`},
   plugins: [
     ...baseConfig.plugins,
-    // terser(terserOptions),
-    // cleanup(), // remove comments and empty lines from source code
     copyToRemote()
   ]
 }
 
-const buildConfig = {
+const minifyConfig = {
   ...baseConfig,
+  output: {file: `${env.userscriptFolder}/${pkg.name}-min.user.js`},
   plugins: [
     ...baseConfig.plugins,
     clearTargetFolders(),
-    removeDebuggingCode(),
-    removeDebugConsole(),
+    disableDebugWarn(),
     terser(terserOptions),
     attachHeader('userscript'),
     copyToRemote()
@@ -242,11 +237,8 @@ const sourceConfig = {
   plugins: [
     ...baseConfig.plugins,
     clearTargetFolders(),
-    removeDebuggingCode(),
-    removeDebugConsole(),
-    cleanup(), // remove comments and empty lines from source code
+    cleanup(),
     attachHeader('userscript'),
-    // attachHeader('license'), // or just the license header
     copyToRemote()
   ]
 }
@@ -255,10 +247,8 @@ const greasyForkConfig = {
   ...baseConfig,
   plugins: [
     ...baseConfig.plugins,
-    clearTargetFolders(),
-    removeDebuggingCode(),
-    removeDebugConsole(),
-    cleanup({comments: 'none'}),
+    disableDebugWarn(),
+    cleanup({comments: 'none'}), // remove all comments, including licenses
     attachHeader('userscript'),
     copyToRemote()
   ]
@@ -275,7 +265,7 @@ switch (process.env.BUILD_ENV) {
     break
 
   case 'build':
-    rollupConfig = buildConfig
+    rollupConfig = [minifyConfig, greasyForkConfig]
     break
 
   case 'source':

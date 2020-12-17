@@ -1,6 +1,6 @@
 {
   "name": "userscript-boilerplate",
-  "version": "0.7.15",
+  "version": "0.7.18",
   "description": "Boilerplate for Greasemonkey Tampermonkey Userscripts",
   "main": "./src/index.js",
   "author": "SubZ390 <11546815+subz390@users.noreply.github.com> (https://github.com/subz390)",
