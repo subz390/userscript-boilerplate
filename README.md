@@ -10,6 +10,13 @@
 2. `yarn install` and `yarn init` or manually update `package.json`
 3. Rename `env_template.json` to `env.json` and edit with your project details.
 
+## Intended Audience
+- If you have a requirement to develop large userscript projects then this environment presents a set of comfort features that'll lower the struggle bar a bit.
+- Particularly where working with ES6 module imports from large libraries such as Svelte and PouchDB.
+- So it's assumed you'll be advanced level in Javascript, DOM, and userscript development.
+- In my comments and documentation I've aimed at prompting and referencing, rather than teaching.
+- Whilst I cannot predict what everyone will know, if there's something you'd like explaining or what ever then hit me up in the discussions section.
+
 ## General Workflow
 - This userscript development environment has been refined over several years of iterations in my personal workflow for developing userscripts.  The main focus is to bundle the script and copy it to a remote server where it can be installed in the browser with Tampermonkey.
 - The imports from `@subz390/jsutils` in `index.js` are from my personal library of userscript centric helper functions.  I am working toward publishing the library.  I use them in testing the boilerplate project.
