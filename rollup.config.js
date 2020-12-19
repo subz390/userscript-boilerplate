@@ -132,7 +132,7 @@ import del from 'rollup-plugin-delete'
  */
 function clearTargetFolders() {
   return del({
-    targets: [`${env.userscriptFolder}/*.js`, `${env.remoteFolder}/${pkg.name}/*.js`],
+    targets: [`${env.userscriptFolder}/*`, `${env.remoteFolder}/${pkg.name}/*`],
     verbose: true,
     force: true
     // dryRun: true,
