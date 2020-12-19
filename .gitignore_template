@@ -26,3 +26,10 @@ loader.js
 # TEST FILES
 tests/
 babel.config.js
+jest.config.js
+
+
+# OTHER FILES
+ISSUES.md
+ROADMAP.md
+CHANGELOG.md
