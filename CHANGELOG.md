@@ -2,6 +2,7 @@
 https://github.com/subz390/userscript-boilerplate
 
 ## 201219
+- 0.7.22 had one incident where livereload started when not in watch mode. Not sure why, hasn't happened since.  But created some logging if it happens again.
 - 0.7.21 create `.gitignore_template` for new project defaults
 - 0.7.20 rename `HISTORY.md` to `CHANGELOG.md`
 

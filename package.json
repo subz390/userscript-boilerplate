@@ -1,6 +1,6 @@
 {
   "name": "userscript-boilerplate",
-  "version": "0.7.21",
+  "version": "0.7.22",
   "description": "Boilerplate for Userscript development",
   "keywords": [
     "Greasemonkey",

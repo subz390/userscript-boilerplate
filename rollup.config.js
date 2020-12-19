@@ -173,6 +173,10 @@ const baseConfig = {
   ]
 }
 
+const watchMode = process.env.ROLLUP_WATCH || false
+// console.log('process.env.ROLLUP_WATCH', process.env.ROLLUP_WATCH)
+// console.log('watchMode', watchMode)
+
 const loaderConfig = {
   ...baseConfig,
   input: `${env.sourceFolder}/loader.js`,
@@ -186,7 +190,7 @@ const loaderConfig = {
     // load the plugin when in development mode
     // if you load it when not in development mode it'll run ok, but will give the impression that Rollup hangs when compiling a bundle
     // it's not hung or crashed, it's just livereload server keeping the command line process running
-    (process.env.ROLLUP_WATCH || false) && livereload({
+    watchMode && livereload({
       // verbose: true,
       watch: env.userscriptFolder,
       // by default livereload looks for its server at the document location
@@ -197,13 +201,13 @@ const loaderConfig = {
       // livereload HTTPS keys
       // when developing userscripts on sites that require authentication, you'll need to liveReload via HTTPS or the browser will block the script from loading
       // you can self generate SSL certificate and key from freeNAS > System > Certificates
-      // build, reload, and then manually browse the livereload https clientURL and accept the key
+      // build and install the script as usual
+      // then in a new browser tab open the livereload https clientURL and accept the key
       https: {key: env.liveReload.key, cert: env.liveReload.certificate}
     }),
   ],
   // https://rollupjs.org/guide/en/#-w--watch
   // While in watch mode, the ROLLUP_WATCH environment variable will be set to "true" by the Rollup command line interface
-  // console.log(`process.env.ROLLUP_WATCH`, process.env.ROLLUP_WATCH)
   watch: {
     include: `${env.sourceFolder}/**`,
     clearScreen: false
