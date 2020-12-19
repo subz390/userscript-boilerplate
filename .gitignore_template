@@ -1,5 +1,5 @@
-# Customise this gitignore file and substitute into new cloned projects
-# In this example all development files are ignored.
+# Customise this gitignore file for substitution into new cloned projects
+# In this example all development files are ignored
 # The remaining source, bundled code and documentation files can then be pushed to a release repository
 
 
