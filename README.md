@@ -9,6 +9,8 @@
 1. `git clone` the project from GitHub to where you want to start a new project.
 2. `yarn install` and `yarn init` or manually update `package.json`
 3. Rename `env_template.json` to `env.json` and edit with your project details.
+4. Configure `.gitignore` to define the files you'll be tracking under version control - see `.gitignore_template` for what I use in userscript projects
+
 
 ## Intended Audience
 - If you have a requirement to develop large userscript projects then this environment presents a set of comfort features that'll lower the struggle bar a bit.
