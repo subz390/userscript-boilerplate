@@ -1,6 +1,9 @@
 # PROJECT HISTORY
 https://github.com/subz390/userscript-boilerplate
 
+## 201219
+- 0.7.21 create `.gitignore_template` for new project defaults
+- 0.7.20 rename `HISTORY.md` to `CHANGELOG.md`
 
 ## 201216
 - 0.7.19 add keywords to `package.json`
